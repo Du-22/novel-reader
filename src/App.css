@@ -4,7 +4,7 @@
   background-color: #f5f5f5;
 }
 
-/* Header 組件樣式 */
+/* 🔧 修改後的 Header 樣式 */
 .header {
   background: #2c3e50;
   color: white;
@@ -13,6 +13,32 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.home-button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.home-button:hover {
+  background: #c0392b;
 }
 
 .novel-title {
@@ -65,22 +91,166 @@
   background: #f8f9fa;
 }
 
-/* 🔧 主要內容區域 - 確保是水平排列 */
-.main-content {
-  display: flex;
-  flex-direction: row; /* 強制水平排列 */
+/* 🔧 首頁樣式 */
+.homepage {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: calc(100vh - 80px);
 }
 
-/* 🔧 ChapterList 組件樣式 - 固定寬度和位置 */
+.homepage-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.homepage-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.homepage-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+/* 小說網格布局 */
+.novels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 小說卡片 */
+.novel-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.novel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #3498db;
+}
+
+.novel-card-header {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.novel-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.novel-card .novel-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.novel-card-body {
+  padding: 1.5rem;
+}
+
+.novel-description {
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.novel-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.novel-format,
+.novel-status {
+  background: #ecf0f1;
+  color: #2c3e50;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.novel-status {
+  background: #d5edda;
+  color: #155724;
+}
+
+.novel-card-footer {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.read-button {
+  width: 100%;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.read-button:hover {
+  background: #2980b9;
+}
+
+/* 空狀態 */
+.no-novels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* 主要內容區域 */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 80px);
+}
+
+/* ChapterList 組件樣式 */
 .chapter-list {
-  width: 280px; /* 增加一點寬度 */
-  min-width: 280px; /* 防止被壓縮 */
+  width: 280px;
+  min-width: 280px;
   background: white;
   border-right: 1px solid #ddd;
   padding: 1rem;
   overflow-y: auto;
-  flex-shrink: 0; /* 防止被壓縮 */
+  flex-shrink: 0;
 }
 
 .chapter-list h3 {
@@ -101,7 +271,7 @@
   border-radius: 4px;
   margin-bottom: 0.5rem;
   transition: all 0.2s;
-  word-wrap: break-word; /* 長文字自動換行 */
+  word-wrap: break-word;
 }
 
 .chapter-item:hover {
@@ -119,15 +289,15 @@
   opacity: 0.8;
 }
 
-/* 🔧 ReadingArea 組件樣式 - 使用剩餘空間 */
+/* ReadingArea 組件樣式 */
 .reading-area {
-  flex: 1; /* 使用剩餘的所有空間 */
+  flex: 1;
   padding: 2rem;
   background: white;
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* 允許內容滾動 */
+  overflow-y: auto;
 }
 
 .no-content {
@@ -162,7 +332,7 @@
 
 .text-content p {
   margin-bottom: 1.5rem;
-  text-indent: 2em; /* 中文段落首行縮排 */
+  text-indent: 2em;
 }
 
 .navigation-buttons {
@@ -210,10 +380,36 @@
   z-index: 9999;
 }
 
-/* 🔧 響應式設計 - 手機版改為垂直排列 */
+/* 響應式設計 - 手機版 */
 @media (max-width: 768px) {
+  .homepage {
+    padding: 1rem;
+  }
+
+  .homepage-title {
+    font-size: 2rem;
+  }
+
+  .novels-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .header-left {
+    gap: 0.5rem;
+  }
+
+  .home-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .header .novel-title {
+    font-size: 1.2rem;
+  }
+
   .main-content {
-    flex-direction: column; /* 手機版垂直排列 */
+    flex-direction: column;
   }
 
   .chapter-list {
